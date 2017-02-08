@@ -1,0 +1,17 @@
+.soc-links{
+	margin-bottom:rhythm(2);
+}
+.soc-links__item{
+	display:inline-block;
+	width:rhythm(6);
+	height:rhythm(6);
+	margin-right:rhythm(1);
+	background-size:cover;
+}
+
+.soc-links__item_vk{
+	background-image:url('../img/soc-links_vk.png');
+}
+.soc-links__item_insta{
+	background-image:url('../img/soc-links_insta.png');
+}

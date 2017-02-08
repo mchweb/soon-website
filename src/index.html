@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>$COMPANY — $TITLE</title>
+		<meta name="description" content="$DESCRIPTION">
+
+		<meta property="og:title" content="$COMPANY — $TITLE" />
+    	<meta property="og:description" content="$DESCRIPTION" />
+    	<meta property="og:type" content="website" />
+    	<meta property="og:url" content="http://$WEBSITE" />
+    	<meta property="og:image" content="http://$WEBSITE/assets/img/og.jpg" />
+		
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+		<link rel="stylesheet" media="screen" href="assets/css/screen.css">
+	</head>
+	<body>
+
+		<!--[if lt IE 9]>
+			<p style="text-align:center;font-size:20px;background:white;width:100%;z-index:10000;padding:20px 0px;color:black"><strong>Кажется, ваш браузер безнадежно устарел.</strong> Скорее всего, сайт будет отображаться и работать некорректно.<br/>Пожалуйста, <a style="color:red" href="http://browsehappy.com/" target="_blank">установите с одного из официальных сайтов</a> новую версию своего браузера.<br/></p>
+		<![endif]-->
+
+		<div class="l-wrapper">
+			<div class="l-content">
+				<header class="logo">
+					<img class="logo__image" src="assets/img/logo_white.svg" width="250" height="85" alt="$COMPANY">
+					<div class="logo__caption"><p>Оставьте электронную почту и мы расскажем вам о&nbsp;запуске нового сайта</p></div>
+				</header>
+				<form class="form" action="javascript:void(null);" onsubmit="sendForm()" name="signup">
+					<div class="form-group js-name">
+						<label class="form-group__label" for="f-name">Представьтесь</label>
+						<input class="form-group__input" name="f-name" id="f-name" placeholder="Иванов Иван Иванович" type="text" required>
+						<p class="form-group__message">Введите ваше имя</p>
+					</div>
+					<div class="form-group js-email">
+						<label class="form-group__label" for="f-email">E-mail</label>
+						<input class="form-group__input" name="f-email" id="f-email" placeholder="ivanov@gmail.com" type="email" required>
+						<p class="form-group__message">Введите ваш e-mail</p>
+					</div>
+					<div class="form-group form-group_for_btn">
+						<button class="form-group__btn"><span>Отправить</span></button>
+						<div class="loader form-group__loader">
+							<svg class="circular" viewBox="25 25 50 50">
+								<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/>
+							</svg>
+						</div>
+					</div>
+
+					<div class="form__result">
+						<p class="form__result-text">Мы&nbsp;сохранили ваш адрес, совсем скоро вы&nbsp;получите письмо о&nbsp;нашем открытии! А&nbsp;пока подпишитесь на&nbsp;нас&nbsp;в&nbsp;<a href="https://www.instagram.com/$INSTAGRAM" target="_blank">Instagram</a> и <a href="https://vk.com/$VK" target="_blank">ВКонтакте</a>.</p>
+					</div>			
+				</form>
+				<footer class="footer">
+					<ul class="footer__soc-links soc-links">
+						<a href="https://www.instagram.com/$INSTAGRAM" target="_blank"><li class="soc-links__item soc-links__item_insta"></li></a>
+						<a href="https://vk.com/$VK" target="_blank"><li class="soc-links__item soc-links__item_vk"></li></a>
+					</ul>
+					<div class="footer__info">
+						<p class="footer__text">$COMPANY — $TITLE</p>
+					</div>
+				</footer>
+			</div>
+		</div>
+
+		<script>
+		function sendForm(){
+			var req = ["email", "name"], isValid = true;
+
+			req.forEach(function(item) {
+				var group = document.querySelector(".js-" + item);
+				var val = group.getElementsByTagName("input")[0].value;
+
+				if (val == ""){
+					group.classList.add("form-group_invalid");
+					group.scrollIntoView();
+					isValid = false;
+				}else{
+					group.classList.remove("form-group_invalid");
+				}
+			});
+
+			if (isValid){
+				var formData = new FormData(document.forms.signup);
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST", "send.php", true);
+				xhr.send(formData);
+				document.forms.signup.classList.add("form_loading");
+				document.forms.signup.getElementsByTagName("button")[0].disabled = true;
+
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState != 4) return;
+
+					if (xhr.status != 200) {
+						alert( 'Упс, произошла ошибка при отправке формы. Убедитесь, что все обязательные поля заполнены и у вас работает интернет, и попробуйте снова. Если проблема возникает снова, напишите нам: $EMAIL. Обязательно сообщите все известные вам подробности о проблеме на сайте и мы обязательно сделаем вам подарок! Информация об ошибке: ' + xhr.status + ': ' + xhr.statusText);
+					} else {
+						document.forms.signup.classList.add("form_sucess");
+					}
+					document.forms.signup.classList.remove("form_loading");
+					document.forms.signup.getElementsByTagName("button")[0].disabled = false;
+					
+				}
+			}
+		}
+		</script>
+		
+		$METRIKA
+	</body>
+</html>

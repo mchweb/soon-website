@@ -1,0 +1,108 @@
+.form{
+	
+}
+.form_sucess{
+	.form__result {
+		max-height:rhythm(20);
+		opacity:1;
+	}
+}
+
+.form-group{
+	display:inline-block;
+	max-width:rhythm(33);
+	margin-right:rhythm(2);
+	vertical-align:middle;
+	@media (max-width: 31em) {
+		display:block;
+		width:100%;
+		max-width:none;
+	}
+}
+.form-group__label{
+	display:block;
+	padding-bottom:rhythm(0.5);	
+	@include adjust-font-size-to(16px);
+}
+
+.form-group__input{
+	width:100%;
+	background:transparent;
+	border-color:$text-clr;
+	border-style: solid;
+	border-width:1px;
+	border-radius:rhythm(4/6);
+	padding:rhythm(8/6) rhythm(1.5);	    
+}
+.form-group__message{
+	opacity:0;
+	visibility:hidden;
+	padding-top:rhythm(0.5, 14px);
+	color:$warning-clr;
+	@include adjust-font-size-to(14px);
+}
+.form-group_for_btn{
+	padding-top:rhythm(7/6);
+}
+.form-group_invalid{
+	.form-group__input{
+		border-color:$warning-clr;
+	}
+	.form-group__message{
+		opacity:1;
+		visibility:visible;
+	}
+}
+
+.form-group__btn{
+	@include adjust-font-size-to(16px);
+	transition-property: border-color,background,fill;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-out;
+	background:transparent;
+	border-color:$text-clr;
+	border-style: solid;
+	border-width:1px;
+	border-radius:rhythm(4/6, 16px);
+	padding:rhythm(5/6, 16px) rhythm(2, 16px);	    
+	&:hover{
+		background:$accent;
+	}
+}
+.form-group__btn_disabled{
+	border-color:$gray;
+	color:$gray;
+	&:hover{
+		background:transparent;
+	}
+}
+
+.form__result {
+	transition: all 0.5s ease-in-out;
+	margin-top:rhythm(2);
+	overflow:hidden;
+	opacity:0;
+	max-height:0;
+	a {
+		transition-property: border-bottom,border-color,background,color,fill;
+    	transition-duration: 0.25s;
+    	transition-timing-function: ease-out;
+    	border-bottom:1px solid $accent;
+    	&:hover{
+    		transition:none;
+    		color:$accent;
+    	}
+	}
+}
+.form__result-text{
+	
+}
+
+.form_loading{
+	.form-group__loader{
+		visibility:visible !important;
+	}
+	.form-group__btn{
+		@extend .form-group__btn_disabled;
+	}
+}

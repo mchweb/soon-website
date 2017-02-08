@@ -1,0 +1,20 @@
+@import "var";
+
+@import "lib/normalize";
+@import "lib/reset";
+//@import "lib/animate";
+
+// main styles
+@import "common";
+
+
+// blocks
+@import "blocks/layout";
+@import "blocks/logo";
+@import "blocks/loader";
+@import "blocks/footer";
+@import "blocks/form";
+@import "blocks/soc-links";
+
+// !important
+@import "overrides";

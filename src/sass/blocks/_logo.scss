@@ -1,0 +1,12 @@
+.logo {
+	
+}
+.logo__image {
+	margin-bottom:rhythm(3);
+}
+.logo__caption{
+	p{
+		@include adjust-font-size-to(24px);
+	}
+	margin-bottom:rhythm(5);
+}
