@@ -847,6 +847,11 @@ SUSY GRID
   background-image: url("../img/soc-links_insta.png");
 }
 
+/* line 18, ../../sass/blocks/_soc-links.scss */
+.soc-links__item_fb {
+  background-image: url("../img/soc-links_fb.png");
+}
+
 /* line 5, ../../sass/_overrides.scss */
 .clr-white {
   color: white !important;

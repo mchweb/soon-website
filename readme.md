@@ -9,9 +9,11 @@ $TITLE — brand description
 
 $DESCRIPTION — meta description
 
-$INSTAGRAM — instagram account (only name)
+$INSTAGRAM — instagram account url
 
-$VK — vk page (without http://vk.com)
+$VK — vk page url
+
+$FACEBOOK — fb page url
 
 $EMAIL — admin email
 
